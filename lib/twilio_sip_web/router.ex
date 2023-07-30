@@ -7,6 +7,7 @@ defmodule TwilioSipWeb.Router do
 
   scope "/api", TwilioSipWeb do
     pipe_through :api
+    post "/process_input", VoiceController, :process_input
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
