@@ -30,7 +30,16 @@ config :twilio_sip, TwilioSipWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :twilio_sip, TwilioSip.Mailer, adapter: Swoosh.Adapters.Local
 
-config :twilio_sip, TwilioSip.Voice, phone_number: System.get_env("twilio_phone", "+12184234743")
+config :twilio_sip, :voice,
+  phone_number: System.get_env("twilio_phone", "+12184234743"),
+  account_sid: System.get_env("account_sid", "AC89e856d7c5c85ddccddd59cd1bd706d9"),
+  auth_token: System.get_env("auth_token", "f895096387bae74e032976bf511777fe"),
+  base_url:
+    System.get_env(
+      "base_url",
+      "https://api.twilio.com/2010-04-01/Accounts/AC89e856d7c5c85ddccddd59cd1bd706d9/Calls.json"
+    ),
+  call_url: System.get_env("call_url", "http://demo.twilio.com/docs/voice.xml")
 
 # Configures Elixir's Logger
 config :logger, :console,
