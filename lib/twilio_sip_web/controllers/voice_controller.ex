@@ -1,7 +1,7 @@
 defmodule TwilioSipWeb.VoiceController do
   use TwilioSipWeb, :controller
 
-  @spec process_input(Plug.Conn.t(), Plug.Conn.t())
+  @spec process_input(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def process_input(conn, %{"Digits" => digits}) do
     xml_response =
       case digits do

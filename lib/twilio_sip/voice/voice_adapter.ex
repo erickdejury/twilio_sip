@@ -6,7 +6,7 @@ defmodule TwilioSip.Voice.Adapter do
   @phone_number Application.compile_env(:twilio_sip, :voice)[:phone_number]
   @call_url Application.compile_env(:twilio_sip, :voice)[:call_url]
 
-  @spec make_call(String.t())
+  @spec make_call(String.t()) :: any()
   def make_call(to_phone_number) do
     params = [
       #      {"Url", @call_url},
